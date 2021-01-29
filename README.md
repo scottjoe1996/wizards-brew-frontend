@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Wizards Brew
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
