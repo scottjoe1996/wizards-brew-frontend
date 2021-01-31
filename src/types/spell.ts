@@ -15,13 +15,13 @@ export interface Spell {
 
 export type Range = 'Self' | 'Touch' | 'Special' | 'Sight' | 'Unlimited' | string;
 
-export type Component = 'Verbal' | 'Somatic' | 'Material';
+export type Component = 'V' | 'S' | 'M';
 
 export type Duration = 'Instantaneous' | '1 round' | 'Until dispelled' | 'Special' | string;
 
 export type CastingTime = '1 bonus action' | '1 action' | '1 reaction' | string;
 
-export type Level = 'Cantrip' | '1st' | '2nd' | '3rd' | '4th' | '5th' | '6th' | '7th' | '8th' | '9th';
+export type Level = 'cantrip' | '1st-level' | '2nd-level' | '3rd-level' | '4th-level' | '5th-level' | '6th-level' | '7th-level' | '8th-level' | '9th-level';
 
 export type School = 'Abjuration' | 'Conjuration' | 'Divination' | 'Enchantment' | 'Evocation' | 'Illusion' | 'Necromancy' | 'Transmutation';
 

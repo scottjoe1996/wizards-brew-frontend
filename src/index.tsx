@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
+import Header from './components/header/header';
+import { Container } from '@material-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    <Container maxWidth='lg'>
+      <App />
+    </Container>
   </React.StrictMode>,
   document.getElementById('root')
 );
