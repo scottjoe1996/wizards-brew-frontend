@@ -1,24 +1,20 @@
-import { Card, CardActions, CardContent, Collapse, createStyles, Divider, IconButton, makeStyles, Typography, Theme } from '@material-ui/core';
-import clsx from 'clsx';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Card, CardActions, CardContent, Collapse, createStyles, Divider, makeStyles, Typography, Theme } from '@material-ui/core';
+
 import React from 'react';
+
 import { Spell } from '../../types/spell';
+
 import SpellCardHeader from './spell-card-header';
+import SpellCardSubHeader from './spell-card-sub-header';
+import ExpandMoreButton from '../buttons/expand-more-button/expand-more-button';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     description: {
       whiteSpace: 'pre-line'
     },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest
-      })
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)'
+    spellCard: {
+      minWidth: 'min-content'
     }
   })
 );
@@ -35,20 +31,12 @@ const SpellCard: React.FunctionComponent<SpellCardProps> = ({ spell }) => {
   };
 
   return (
-    <Card raised>
-      <SpellCardHeader name={spell.name} level={spell.level} school={spell.school} components={spell.components}></SpellCardHeader>
+    <Card raised className={classes.spellCard}>
+      <SpellCardHeader name={spell.name} level={spell.level} school={spell.school} components={spell.components} />
       <Divider variant='middle' />
       <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label='show more'
-        >
-          <ExpandMoreIcon />
-        </IconButton>
+        <SpellCardSubHeader castingTime={spell.castingTime} range={spell.range} duration={spell.duration} />
+        <ExpandMoreButton isDown={expanded} handleClick={handleExpandClick} />
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>

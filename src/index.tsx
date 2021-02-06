@@ -7,12 +7,12 @@ import Header from './components/header/header';
 import { Container } from '@material-ui/core';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <Header />
     <Container maxWidth='lg'>
       <App />
     </Container>
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 
