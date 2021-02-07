@@ -11,9 +11,9 @@ const App: React.FunctionComponent = () => {
     range: '30 feet',
     components: ['V', 'S', 'M'],
     material: 'Pieces of eggshell from two different kinds of creatures.',
-    ritual: true,
+    isRitual: true,
     duration: '1 hour',
-    concentration: false,
+    isConcentration: false,
     castingTime: '1 action',
     level: '5th-level',
     school: 'Divination',
@@ -22,8 +22,10 @@ const App: React.FunctionComponent = () => {
   return (
     <div>
       <h1>Test Page</h1>
-      <Grid item xs={6}>
-        <SpellCard spell={testSpell} />
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <SpellCard spell={testSpell} />
+        </Grid>
       </Grid>
     </div>
   );

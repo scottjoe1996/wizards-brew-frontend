@@ -10,6 +10,9 @@ const useStyles = makeStyles(() =>
     },
     spellAttributeContainer: {
       minWidth: 'min-content'
+    },
+    spellAttributeTitle: {
+      fontWeight: 'bold'
     }
   })
 );
@@ -26,7 +29,7 @@ const SpellCardSubHeader: React.FunctionComponent<SpellCardSubHeaderProps> = ({ 
   return (
     <Grid className={classes.subHeaderContainer} wrap='nowrap' container spacing={2}>
       <Grid className={classes.spellAttributeContainer} item xs={4}>
-        <Typography noWrap variant='overline'>
+        <Typography className={classes.spellAttributeTitle} noWrap variant='overline'>
           CASTING TIME
         </Typography>
         <Typography variant='body2' gutterBottom>
@@ -34,13 +37,17 @@ const SpellCardSubHeader: React.FunctionComponent<SpellCardSubHeaderProps> = ({ 
         </Typography>
       </Grid>
       <Grid className={classes.spellAttributeContainer} item xs={4}>
-        <Typography variant='overline'>RANGE</Typography>
+        <Typography className={classes.spellAttributeTitle} variant='overline'>
+          RANGE
+        </Typography>
         <Typography variant='body2' gutterBottom>
           {range}
         </Typography>
       </Grid>
       <Grid className={classes.spellAttributeContainer} item xs={4}>
-        <Typography variant='overline'>DURATION</Typography>
+        <Typography className={classes.spellAttributeTitle} variant='overline'>
+          DURATION
+        </Typography>
         <Typography variant='body2' gutterBottom>
           {duration}
         </Typography>

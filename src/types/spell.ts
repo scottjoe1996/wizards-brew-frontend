@@ -4,9 +4,9 @@ export interface Spell {
   range: Range;
   components: Component[];
   material?: string;
-  ritual: boolean;
+  isRitual: boolean;
   duration: Duration;
-  concentration: boolean;
+  isConcentration: boolean;
   castingTime: CastingTime;
   level: Level;
   school: School;

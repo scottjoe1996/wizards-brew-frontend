@@ -32,7 +32,14 @@ const SpellCard: React.FunctionComponent<SpellCardProps> = ({ spell }) => {
 
   return (
     <Card raised className={classes.spellCard}>
-      <SpellCardHeader name={spell.name} level={spell.level} school={spell.school} components={spell.components} />
+      <SpellCardHeader
+        name={spell.name}
+        level={spell.level}
+        school={spell.school}
+        components={spell.components}
+        isRitual={spell.isRitual}
+        isConcentration={spell.isConcentration}
+      />
       <Divider variant='middle' />
       <CardActions disableSpacing>
         <SpellCardSubHeader castingTime={spell.castingTime} range={spell.range} duration={spell.duration} />

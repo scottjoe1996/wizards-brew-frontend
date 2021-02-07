@@ -16,7 +16,7 @@ it('should not render with rotate class if isDown is false', () => {
   expect(expandMoreButton?.className).not.toContain('makeStyles-rotate-2');
 });
 
-it('should not call clickMethod on click', () => {
+it('should call clickMethod on click', () => {
   const mockClickMethod = jest.fn();
   const { container } = render(<ExpandMoreButton handleClick={mockClickMethod} />);
   const expandMoreButton = container.querySelector('button');
