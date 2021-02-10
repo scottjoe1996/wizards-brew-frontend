@@ -25,7 +25,7 @@ interface ExpandMoreButtonProps {
   handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const DEFAULT_PROPS: Partial<ExpandMoreButtonProps> = {
+const DEFAULT_PROPS: ExpandMoreButtonProps = {
   isDown: false,
   handleClick: () => null
 };

@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, Collapse, createStyles, Divider, makeStyles, Typography, Theme } from '@material-ui/core';
+import { Card, CardActions, Collapse, createStyles, Divider, makeStyles, Theme } from '@material-ui/core';
 
 import React from 'react';
 
@@ -7,12 +7,10 @@ import { Spell } from '../../types/spell';
 import SpellCardHeader from './spell-card-header';
 import SpellCardSubHeader from './spell-card-sub-header';
 import ExpandMoreButton from '../buttons/expand-more-button/expand-more-button';
+import SpellCardExpandedContent from './spell-card-expanded-content';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    description: {
-      whiteSpace: 'pre-line'
-    },
     spellCard: {
       minWidth: 'min-content'
     }
@@ -46,11 +44,7 @@ const SpellCard: React.FunctionComponent<SpellCardProps> = ({ spell }) => {
         <ExpandMoreButton isDown={expanded} handleClick={handleExpandClick} />
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
-        <CardContent>
-          <Typography variant='body2' color='textSecondary' className={classes.description}>
-            {spell.description}
-          </Typography>
-        </CardContent>
+        <SpellCardExpandedContent materials={spell.materials} description={spell.description} usableInClasses={spell.usableInClasses} />
       </Collapse>
     </Card>
   );

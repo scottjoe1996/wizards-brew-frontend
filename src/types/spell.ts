@@ -1,16 +1,16 @@
 export interface Spell {
   name: string;
-  description: React.ReactNode;
+  description: string;
   range: Range;
   components: Component[];
-  material?: string;
+  materials?: string;
   isRitual: boolean;
   duration: Duration;
   isConcentration: boolean;
   castingTime: CastingTime;
   level: Level;
   school: School;
-  class: Class[];
+  usableInClasses: Class[];
 }
 
 export type Range = 'Self' | 'Touch' | 'Special' | 'Sight' | 'Unlimited' | string;
