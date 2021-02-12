@@ -7,21 +7,22 @@ executors:
 
 commands:
   setup_environment:
-    executor: node_executor
     steps:
       - checkout
-      - npm run install
-
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
 
 jobs:
   unit-tests:
     executor: node_executor
-    - setup_environment
     steps:
+      - setup_environment 
       - run: npm run lint
       - run: npm run test
 
-      
+orbs:
+  node: circleci/node@3.0.0      
 workflows:
   wizards-brew-frontend:
     jobs:
