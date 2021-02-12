@@ -7,18 +7,21 @@ executors:
 
 commands:
   setup_environment:
+    executor: node_executor
     steps:
       - checkout
-      - run: npm run install
+      - npm run install
+
 
 jobs:
   unit-tests:
     executor: node_executor
+    - setup_environment
     steps:
-      - setup_environment
       - run: npm run lint
       - run: npm run test
 
+      
 workflows:
   wizards-brew-frontend:
     jobs:
