@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Header: React.FunctionComponent = () => {
-  const meme;
+  const meme = 'meme';
   const classes = useStyles();
 
   return (

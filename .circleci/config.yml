@@ -5,16 +5,16 @@ executors:
     docker:
       - image: circleci/node:12.14.1
 
+commands:
+  setup_environment:
+    steps:
+      - checkout
+      - npm run install
+
 jobs:
-  Run lint:
+  unit-tests:
     executor: node_executor
+    - setup_environment
     steps:
       - run: npm run lint
-
-orbs:
-  node: circleci/node@4.1.0
-workflows:
-  wizards-brew-frontend:
-    jobs:
-      - node/test
-      - Run lint
+      - run: npm run test
