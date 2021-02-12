@@ -1,10 +1,16 @@
 version: 2.1
+
+jobs:
+  Run lint:
+    docker:
+      - image: circleci/<language>:<version TAG>
+    steps:
+      - run: npm run lint
+
 orbs:
   node: circleci/node@3.0.0
 workflows:
   wizards-brew-frontend:
     jobs:
-      Run lint:
-        - npm run lint
-      Run tests:
-        - npm run test
+      - node/test
+      - Run lint
