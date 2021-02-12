@@ -9,12 +9,17 @@ commands:
   setup_environment:
     steps:
       - checkout
-      - npm run install
+      - run: npm run install
 
 jobs:
   unit-tests:
     executor: node_executor
-    - setup_environment
     steps:
+      - setup_environment
       - run: npm run lint
       - run: npm run test
+
+workflows:
+  wizards-brew-frontend:
+    jobs:
+      - unit-tests
