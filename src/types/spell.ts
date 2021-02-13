@@ -1,6 +1,7 @@
 export interface Spell {
   name: string;
   description: string;
+  atHigherLevels?: string;
   range: Range;
   components: Component[];
   materials?: string;
