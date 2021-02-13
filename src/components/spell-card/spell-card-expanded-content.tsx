@@ -16,10 +16,16 @@ const useStyles = makeStyles(() =>
 interface SpellCardExpandedContentProps {
   materials?: string;
   description: string;
+  atHigherLevels?: string;
   usableInClasses: Class[];
 }
 
-const SpellCardExpandedContent: React.FunctionComponent<SpellCardExpandedContentProps> = ({ materials: material, description, usableInClasses }) => {
+const SpellCardExpandedContent: React.FunctionComponent<SpellCardExpandedContentProps> = ({
+  materials: material,
+  description,
+  atHigherLevels,
+  usableInClasses
+}) => {
   const classes = useStyles();
 
   return (
@@ -33,6 +39,12 @@ const SpellCardExpandedContent: React.FunctionComponent<SpellCardExpandedContent
       <Typography variant='body2' color='textSecondary' paragraph className={classes.description}>
         {description}
       </Typography>
+      {atHigherLevels && (
+        <Typography variant='body2' color='textSecondary'>
+          <span className={classes.heading}>At higher levels: </span>
+          {atHigherLevels}
+        </Typography>
+      )}
       {usableInClasses.length !== 0 && (
         <Typography variant='body2' color='textSecondary'>
           <span className={classes.heading}>Classes: </span>

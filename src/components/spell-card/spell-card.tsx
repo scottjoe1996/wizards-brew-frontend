@@ -44,7 +44,12 @@ const SpellCard: React.FunctionComponent<SpellCardProps> = ({ spell }) => {
         <ExpandMoreButton isDown={expanded} handleClick={handleExpandClick} />
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
-        <SpellCardExpandedContent materials={spell.materials} description={spell.description} usableInClasses={spell.usableInClasses} />
+        <SpellCardExpandedContent
+          materials={spell.materials}
+          description={spell.description}
+          atHigherLevels={spell.atHigherLevels}
+          usableInClasses={spell.usableInClasses}
+        />
       </Collapse>
     </Card>
   );
