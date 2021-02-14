@@ -40,7 +40,7 @@ const SpellCardExpandedContent: React.FunctionComponent<SpellCardExpandedContent
         {description}
       </Typography>
       {atHigherLevels && (
-        <Typography variant='body2' color='textSecondary'>
+        <Typography variant='body2' color='textSecondary' paragraph>
           <span className={classes.heading}>At higher levels: </span>
           {atHigherLevels}
         </Typography>
