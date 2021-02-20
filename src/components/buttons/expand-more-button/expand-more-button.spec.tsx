@@ -1,4 +1,3 @@
-import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import ExpandMoreButton from './expand-more-button';
 
@@ -18,7 +17,7 @@ it('should not render with rotate class if isDown is false', () => {
 
 it('should call clickMethod on click', () => {
   const mockClickMethod = jest.fn();
-  const { container } = render(<ExpandMoreButton handleClick={mockClickMethod} />);
+  const { container } = render(<ExpandMoreButton onClick={mockClickMethod} />);
   const expandMoreButton = container.querySelector('button');
 
   fireEvent.click(expandMoreButton!);

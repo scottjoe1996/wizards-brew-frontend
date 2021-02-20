@@ -22,15 +22,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface ExpandMoreButtonProps {
   isDown?: boolean;
-  handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const DEFAULT_PROPS: ExpandMoreButtonProps = {
   isDown: false,
-  handleClick: () => null
+  onClick: () => null
 };
 
-const ExpandMoreButton: React.FunctionComponent<ExpandMoreButtonProps> = ({ isDown = DEFAULT_PROPS.isDown, handleClick = DEFAULT_PROPS.handleClick }) => {
+const ExpandMoreButton: React.FunctionComponent<ExpandMoreButtonProps> = ({ isDown = DEFAULT_PROPS.isDown, onClick = DEFAULT_PROPS.onClick }) => {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,7 @@ const ExpandMoreButton: React.FunctionComponent<ExpandMoreButtonProps> = ({ isDo
       className={clsx(classes.rotateAnimation, {
         [classes.rotate]: isDown
       })}
-      onClick={handleClick}
+      onClick={onClick}
     >
       <ExpandMoreIcon />
     </IconButton>

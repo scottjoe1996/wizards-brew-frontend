@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import SpellCardExpandedContent from './spell-card-expanded-content';
 import { Class } from '../../types/spell';

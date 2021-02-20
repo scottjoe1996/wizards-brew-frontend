@@ -1,23 +1,29 @@
+import { Container, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
 
-import { Grid } from '@material-ui/core';
+import Header from './components/header/header';
+import Spellbook from './pages/spellbook/spellbook';
 
-import SpellCard from './components/spell-card/spell-card';
-import { Spell } from './types/spell';
-import spellList from './data/spell-list.json';
+const customTheme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1440
+    }
+  }
+});
 
 const App: React.FunctionComponent = () => {
-  const testSpell: Spell = spellList[Math.floor(Math.random() * spellList.length)] as Spell;
-
   return (
-    <div>
-      <h1>Test Page</h1>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <SpellCard spell={testSpell} />
-        </Grid>
-      </Grid>
-    </div>
+    <MuiThemeProvider theme={customTheme}>
+      <Header />
+      <Container maxWidth='xl'>
+        <Spellbook />
+      </Container>
+    </MuiThemeProvider>
   );
 };
 

@@ -41,7 +41,7 @@ const SpellCard: React.FunctionComponent<SpellCardProps> = ({ spell }) => {
       <Divider variant='middle' />
       <CardActions disableSpacing>
         <SpellCardSubHeader castingTime={spell.castingTime} range={spell.range} duration={spell.duration} />
-        <ExpandMoreButton isDown={expanded} handleClick={handleExpandClick} />
+        <ExpandMoreButton isDown={expanded} onClick={handleExpandClick} />
       </CardActions>
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <SpellCardExpandedContent

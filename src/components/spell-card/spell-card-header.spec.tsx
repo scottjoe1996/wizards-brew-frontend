@@ -1,10 +1,9 @@
-import React from 'react';
 import { render } from '@testing-library/react';
 import SpellCardHeader from './spell-card-header';
 import { Component } from '../../types/spell';
 
 const TEST_SPELL_NAME = 'test spell name';
-const TEST_SPELL_LEVEL = 'cantrip';
+const TEST_SPELL_LEVEL = 'Cantrip';
 const TEST_SPELL_COMPONENTS: Component[] = ['V', 'S', 'M'];
 const TEST_SPELL_SCHOOL = 'Illusion';
 const TEST_IS_RITUAL = true;

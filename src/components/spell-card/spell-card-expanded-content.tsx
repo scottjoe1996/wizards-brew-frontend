@@ -4,7 +4,7 @@ import { Class } from '../../types/spell';
 
 const useStyles = makeStyles(() =>
   createStyles({
-    description: {
+    contentText: {
       whiteSpace: 'pre-line'
     },
     heading: {
@@ -31,22 +31,22 @@ const SpellCardExpandedContent: React.FunctionComponent<SpellCardExpandedContent
   return (
     <CardContent>
       {material && (
-        <Typography variant='body2' color='textSecondary' paragraph>
+        <Typography variant='body2' color='textSecondary' paragraph className={classes.contentText}>
           <span className={classes.heading}>Materials: </span>
           {material}
         </Typography>
       )}
-      <Typography variant='body2' color='textSecondary' paragraph className={classes.description}>
+      <Typography variant='body2' color='textSecondary' paragraph className={classes.contentText}>
         {description}
       </Typography>
       {atHigherLevels && (
-        <Typography variant='body2' color='textSecondary' paragraph>
+        <Typography variant='body2' color='textSecondary' paragraph className={classes.contentText}>
           <span className={classes.heading}>At higher levels: </span>
           {atHigherLevels}
         </Typography>
       )}
       {usableInClasses.length !== 0 && (
-        <Typography variant='body2' color='textSecondary'>
+        <Typography variant='body2' color='textSecondary' className={classes.contentText}>
           <span className={classes.heading}>Classes: </span>
           {usableInClasses.join(', ')}
         </Typography>
