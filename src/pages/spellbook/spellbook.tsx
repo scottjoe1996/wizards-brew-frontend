@@ -26,16 +26,19 @@ const Spellbook: React.FunctionComponent = () => {
   const [spellsToShow, setSpellsToShow] = useState([] as Spell[]);
   const [shownCounter, setShownCounter] = useState(1);
 
-  const addNextSpellsToShow = (start: number, end: number) => {
+  const handleShowMoreSpellsClick = (): void => {
+    const shownSoFar = shownCounter * SHOW_SPELL_LIMIT;
+    addNextSpellsToShow(shownSoFar, shownSoFar + SHOW_SPELL_LIMIT);
+    setShownCounter(shownCounter + 1);
+  };
+
+  const addNextSpellsToShow = (start: number, end: number): void => {
     const spellsToAdd = SPELL_LIST.slice(start, end);
     previousShownSpells = [...previousShownSpells, ...spellsToAdd];
     setSpellsToShow(previousShownSpells);
   };
 
-  const handleShowMoreSpellsClick = () => {
-    addNextSpellsToShow(shownCounter, shownCounter + SHOW_SPELL_LIMIT);
-    setShownCounter(shownCounter + SHOW_SPELL_LIMIT);
-  };
+  const isShowMoreButtonDisabled = (): boolean => shownCounter * SHOW_SPELL_LIMIT >= SPELL_LIST.length;
 
   useEffect(() => {
     addNextSpellsToShow(0, SHOW_SPELL_LIMIT);
@@ -52,10 +55,12 @@ const Spellbook: React.FunctionComponent = () => {
   return (
     <div>
       <h1>Spellbook</h1>
-      <Grid container justify='center' spacing={3}>
+      <Grid container justify='flex-start' spacing={3}>
         {spellCards}
       </Grid>
-      <GutterButton onClick={handleShowMoreSpellsClick}>Show More</GutterButton>
+      <GutterButton isDisabled={isShowMoreButtonDisabled()} onClick={handleShowMoreSpellsClick}>
+        Show More
+      </GutterButton>
     </div>
   );
 };
