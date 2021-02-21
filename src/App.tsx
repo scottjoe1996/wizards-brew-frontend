@@ -1,4 +1,4 @@
-import { Container, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { Container, createMuiTheme, createStyles, makeStyles, MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
 
 import Header from './components/header/header';
@@ -16,11 +16,21 @@ const customTheme = createMuiTheme({
   }
 });
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    container: {
+      paddingTop: '96px'
+    }
+  })
+);
+
 const App: React.FunctionComponent = () => {
+  const classes = useStyles();
+
   return (
     <MuiThemeProvider theme={customTheme}>
       <Header />
-      <Container maxWidth='xl'>
+      <Container maxWidth='xl' className={classes.container}>
         <Spellbook />
       </Container>
     </MuiThemeProvider>

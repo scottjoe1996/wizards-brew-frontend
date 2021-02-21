@@ -15,7 +15,7 @@ const Header: React.FunctionComponent = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position='sticky'>
+    <AppBar>
       <Toolbar>
         <LocalLibraryRounded className={classes.menuButton} />
         <Typography variant='h6'>Wizards Brew</Typography>
