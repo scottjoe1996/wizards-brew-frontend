@@ -19,7 +19,7 @@ interface GutterButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const DEFAULT_PROPS: Pick<GutterButtonProps, 'onClick' | 'isDisabled'> = {
+const DEFAULT_PROPS: GutterButtonProps = {
   isDisabled: false,
   onClick: () => null
 };
