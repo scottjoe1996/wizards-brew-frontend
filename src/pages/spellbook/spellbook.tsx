@@ -1,42 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Spell } from '../../types/spell';
 import spellList from '../../data/spell-list.json';
 import GutterButton from '../../components/buttons/gutter-button/gutter-button';
 import SpellList from '../../components/spell-list/spell-list';
+import SpellFilter from '../../components/spell-filter/spell-filter';
 
-const SPELL_LIST = spellList as Spell[];
+import useSpellsToShow from './spells-list-helper';
+
+const DEFAULT_SPELL_LIST = spellList as Spell[];
 const SHOW_SPELL_LIMIT = 15;
 
-let previousShownSpells: Spell[] = [];
-
 const Spellbook: React.FunctionComponent = () => {
-  const [spellsToShow, setSpellsToShow] = useState([] as Spell[]);
-  const [shownCounter, setShownCounter] = useState(1);
+  const [spellnameFilter, setSpellnameFilter] = useState('');
+  const { spellsToShow, shownCounter, incrementShownCounter } = useSpellsToShow(DEFAULT_SPELL_LIST, SHOW_SPELL_LIMIT);
 
-  const handleShowMoreSpellsClick = (): void => {
-    const shownSoFar = shownCounter * SHOW_SPELL_LIMIT;
-    addNextSpellsToShow(shownSoFar, shownSoFar + SHOW_SPELL_LIMIT);
-    setShownCounter(shownCounter + 1);
-  };
-
-  const addNextSpellsToShow = (start: number, end: number): void => {
-    const spellsToAdd = SPELL_LIST.slice(start, end);
-    previousShownSpells = [...previousShownSpells, ...spellsToAdd];
-    setSpellsToShow(previousShownSpells);
-  };
-
-  const isShowMoreButtonDisabled = (): boolean => shownCounter * SHOW_SPELL_LIMIT >= SPELL_LIST.length;
-
-  useEffect(() => {
-    addNextSpellsToShow(0, SHOW_SPELL_LIMIT);
-  }, []);
+  const isShowMoreButtonDisabled = (): boolean => (shownCounter + 1) * SHOW_SPELL_LIMIT >= DEFAULT_SPELL_LIST.length;
 
   return (
     <div>
       <h1>Spellbook</h1>
+      <SpellFilter spellnameFilter={spellnameFilter} setSpellnameFilter={setSpellnameFilter} />
       <SpellList spells={spellsToShow} />
-      <GutterButton isDisabled={isShowMoreButtonDisabled()} onClick={handleShowMoreSpellsClick}>
+      <GutterButton isDisabled={isShowMoreButtonDisabled()} onClick={() => incrementShownCounter()}>
         Show More
       </GutterButton>
     </div>

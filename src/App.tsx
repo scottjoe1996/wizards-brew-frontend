@@ -26,7 +26,6 @@ const useStyles = makeStyles(() =>
 
 const App: React.FunctionComponent = () => {
   const classes = useStyles();
-
   return (
     <MuiThemeProvider theme={customTheme}>
       <Header />
