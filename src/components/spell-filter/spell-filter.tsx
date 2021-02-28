@@ -20,6 +20,7 @@ const SpellFilter: React.FunctionComponent<SpellFilterProps> = ({ spellnameFilte
   return (
     <Box className={classes.filterContainer}>
       <TextField
+        id='spellname-filter'
         label='Spellname'
         variant='outlined'
         value={spellnameFilter}
