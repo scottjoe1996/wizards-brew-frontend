@@ -11,10 +11,10 @@ const useStyles = makeStyles(() =>
 
 interface SpellFilterProps {
   spellnameFilter: string;
-  setSpellnameFilter: React.Dispatch<React.SetStateAction<string>>;
+  filterSpells: (spellnameFilter: string) => void;
 }
 
-const SpellFilter: React.FunctionComponent<SpellFilterProps> = ({ spellnameFilter, setSpellnameFilter }) => {
+const SpellFilter: React.FunctionComponent<SpellFilterProps> = ({ spellnameFilter, filterSpells }) => {
   const classes = useStyles();
 
   return (
@@ -25,7 +25,7 @@ const SpellFilter: React.FunctionComponent<SpellFilterProps> = ({ spellnameFilte
         variant='outlined'
         value={spellnameFilter}
         onChange={(event) => {
-          setSpellnameFilter(event.target.value);
+          filterSpells(event.target.value);
         }}
         inputProps={{
           spellCheck: true,
