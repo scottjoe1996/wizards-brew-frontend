@@ -1,9 +1,8 @@
 import { Container, createMuiTheme, createStyles, makeStyles, MuiThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/header/header';
-import Spellbook from './pages/spellbook/spellbook';
+import OktaRouter from './router/okta-router';
 
 const customTheme = createMuiTheme({
   breakpoints: {
@@ -28,18 +27,12 @@ const useStyles = makeStyles(() =>
 const App: React.FunctionComponent = () => {
   const classes = useStyles();
   return (
-    <BrowserRouter>
-      <MuiThemeProvider theme={customTheme}>
-        <Header />
-        <Container maxWidth='xl' className={classes.container}>
-          <Switch>
-            <Route path='/'>
-              <Spellbook />
-            </Route>
-          </Switch>
-        </Container>
-      </MuiThemeProvider>
-    </BrowserRouter>
+    <MuiThemeProvider theme={customTheme}>
+      <Header />
+      <Container maxWidth='xl' className={classes.container}>
+        <OktaRouter />
+      </Container>
+    </MuiThemeProvider>
   );
 };
 
