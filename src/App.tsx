@@ -1,10 +1,19 @@
 import { Container, createMuiTheme, createStyles, makeStyles, MuiThemeProvider } from '@material-ui/core';
+import { blueGrey } from '@material-ui/core/colors';
 import React from 'react';
 
 import Header from './components/header/header';
 import OktaRouter from './router/okta-router';
 
 const customTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: blueGrey[500]
+    },
+    secondary: {
+      main: blueGrey[50]
+    }
+  },
   breakpoints: {
     values: {
       xs: 0,

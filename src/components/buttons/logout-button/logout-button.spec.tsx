@@ -20,3 +20,9 @@ it('should fire event when button clicked', () => {
 
   expect(mockClickMethod).toHaveBeenCalledTimes(1);
 });
+
+it('should have the invisible class when isInvisible', () => {
+  const { container } = render(<LogoutButton onClick={mockClickMethod} isInvisible />);
+
+  expect(container.firstElementChild?.classList.toString()).toContain('invisibleStyle');
+});
