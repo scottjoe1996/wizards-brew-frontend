@@ -17,9 +17,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface HeaderProps {
   isLoggedIn?: boolean;
+  onLogoutClick?: () => void;
 }
 
-const Header: React.FunctionComponent<HeaderProps> = ({ isLoggedIn }) => {
+const DEFAULT_PROPS: HeaderProps = {
+  onLogoutClick: () => null
+};
+
+const Header: React.FunctionComponent<HeaderProps> = ({ isLoggedIn, onLogoutClick = DEFAULT_PROPS.onLogoutClick! }) => {
   const classes = useStyles();
 
   return (
@@ -29,7 +34,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({ isLoggedIn }) => {
         <Typography variant='h6' className={classes.titleSpacing}>
           Wizards Brew
         </Typography>
-        <LogoutButton isInvisible={isLoggedIn} />
+        <LogoutButton isInvisible={isLoggedIn} onClick={onLogoutClick} />
       </Toolbar>
     </AppBar>
   );

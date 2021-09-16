@@ -1,6 +1,8 @@
+import React from 'react';
+
+import { useOktaAuth } from '@okta/okta-react/bundles/types';
 import { Container, createMuiTheme, createStyles, makeStyles, MuiThemeProvider } from '@material-ui/core';
 import { blueGrey } from '@material-ui/core/colors';
-import React from 'react';
 
 import Header from './components/header/header';
 import OktaRouter from './router/okta-router';
@@ -35,9 +37,13 @@ const useStyles = makeStyles(() =>
 
 const App: React.FunctionComponent = () => {
   const classes = useStyles();
+  const { oktaAuth, authState } = useOktaAuth();
+
+  const logout = async () => oktaAuth.signOut();
+
   return (
     <MuiThemeProvider theme={customTheme}>
-      <Header />
+      <Header isLoggedIn={authState?.isAuthenticated} onLogoutClick={logout} />
       <Container maxWidth='xl' className={classes.container}>
         <OktaRouter />
       </Container>
