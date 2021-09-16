@@ -28,7 +28,7 @@ const GutterButton: React.FunctionComponent<GutterButtonProps> = ({ isDisabled =
   const classes = useStyles();
 
   return (
-    <Grid container justify='center'>
+    <Grid container justifyContent='center'>
       <Grid item xs={10} className={classes.buttonContainer}>
         <Button fullWidth size='large' variant='contained' color='primary' disabled={isDisabled} onClick={onClick}>
           {children}

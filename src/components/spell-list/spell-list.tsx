@@ -28,7 +28,7 @@ const SpellList: React.FunctionComponent<SpellListProps> = ({ spells }) => {
   });
 
   return (
-    <Grid container justify='flex-start' spacing={3}>
+    <Grid container justifyContent='flex-start' spacing={3}>
       {spellCards}
     </Grid>
   );
